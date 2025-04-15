@@ -1,0 +1,29 @@
+def binary_search(nums: List[int], x: int) -> int:
+        left = 0
+        right = len(nums) - 1
+
+        while left <= right:
+            mid = (left+right)//2
+            if nums[mid] == x:
+                return mid
+            elif nums[mid] > x:
+                right = mid -1
+            else:
+                left = mid+1
+        return left
+
+class Solution:
+    
+
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        rslt = []
+        for x in nums:
+            if not rslt or x > rslt[-1]:
+                rslt.append(x)
+            else:
+                i = binary_search(rslt, x)
+                rslt[i] = x
+        return len(rslt)
+
+
+        
