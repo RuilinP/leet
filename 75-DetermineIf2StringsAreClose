@@ -1,0 +1,7 @@
+class Solution:
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        cnt1 = Counter(word1)
+        cnt2 = Counter(word2)
+        return (cnt1.keys() == cnt2.keys() //Check if the same character set
+        and sorted(cnt1.values()) == sorted(cnt2.values())) //Check whether the frequencies are the same, like [1,2,3] with [2,1,3]
+    
